@@ -1,0 +1,9 @@
+# Generating a predefined wrapper class
+
+JNIPort dynamically generates wrapper classes for Java classes whenever it encounters a Java class or one of its instances for the first time after starting a JVM. These classes exist until the JVM is shut down. They are called "ghost classes" in the JNIPort documentation because they are not shown in the class browsers, and you usually do not "see" them anywhere.
+
+Sometimes it would be convenient to extend a wrapper class with additional Smalltalk methods, thus extending the set of messages which can be sent to an instance of a Java class. JNIPort lets you do this by using predefined wrapper classes. Actually, JNIPort already includes dozens of such predefined wrapper classes. Browse the subclasses of JavaClassInstance, JavaClassStatic, and JavaInterfaceInstance for examples.
+
+You can of course write wrapper classes manually, but this is a lot of work, and you need to know how the methods have to be written which forward Smalltalk messages to the actual Java objects. Therefore, JNIPort comes with a wrapper class creation dialog which is similar to the normal VisualWorks class creation dialog. It can be opened from the class list's context menu in the Refactoring Browser. To use it, there has to be a running JVM, because JNIPort uses Java's reflection abilities to find out which methods have to be generated.
+
+The screencast walks through an example. It shows the generation of predefined wrapper classes for both the instance and the static side of a Java class. At the end, it shows that accessing the Java class and creating instances of the class uses the predefined wrapper classes.
